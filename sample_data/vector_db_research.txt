@@ -1,0 +1,40 @@
+Project Research Reference: Vector Database Evaluation 2026
+============================================================
+
+Objective
+---------
+Evaluate open-source vector databases for integration into the product search pipeline.
+Requirements: sub-50ms p99 latency, support for 768-dim embeddings, horizontal scalability.
+
+Candidates Reviewed
+-------------------
+1. Qdrant  v1.9  — Rust-native, excellent write throughput, great filtering
+2. Weaviate v1.25 — GraphQL API, built-in modules, slightly higher memory use
+3. Milvus  v2.4  — Battle-tested, Kubernetes-native, good ecosystem
+4. Chroma  v0.5  — Simple API, best for prototyping, single-node only
+
+Benchmark Results (1M vectors, 768-dim, cosine similarity)
+-----------------------------------------------------------
+Database   | Ingest QPS | Query p50 (ms) | Query p99 (ms) | RAM (GB)
+-----------|-----------|----------------|----------------|----------
+Qdrant     |   28,000  |       4.2      |       12.1     |   8.4
+Weaviate   |   19,500  |       5.8      |       18.3     |  11.2
+Milvus     |   22,000  |       4.9      |       14.6     |   9.7
+Chroma     |    8,000  |       9.1      |       35.2     |   5.1
+
+References
+----------
+- Qdrant docs: https://qdrant.tech/documentation
+- ANN Benchmarks 2025: https://ann-benchmarks.com
+- Internal POC code: /repos/search-spike/vector-eval
+
+Conclusion
+----------
+Qdrant meets all criteria. Recommend proceeding with Qdrant for the search pipeline.
+Budget estimate: 3 engineer-weeks for integration and tuning.
+
+Next Steps
+----------
+TODO: Raise RFC for vector DB adoption with architecture team
+TODO: Set up Qdrant in staging cluster by end of sprint
+ACTION: Assign integration task to platform team

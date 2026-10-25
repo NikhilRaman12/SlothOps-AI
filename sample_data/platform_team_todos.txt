@@ -1,0 +1,35 @@
+BACKLOG — Platform Team · Week of Oct 25, 2026
+===============================================
+
+HIGH PRIORITY
+-------------
+- [ ] Fix null-pointer exception in user profile loader (Bug #4821)
+- [ ] Upgrade Redis client to v5.x (breaks in Python 3.12)
+- [ ] ACTION: Review and merge PR #338 — auth middleware refactor
+- [ ] Resolve flaky test in CI: test_payment_webhook (fails ~30% of runs)
+
+MEDIUM PRIORITY
+---------------
+- [ ] Migrate legacy config files from JSON → TOML
+- [ ] TODO: Write load test for new search endpoint
+- [ ] Add structured logging to notification service
+- [ ] Review Dependabot PRs (12 pending)
+
+LOW PRIORITY / NICE TO HAVE
+----------------------------
+- [ ] Update README with Docker Compose setup
+- [ ] Explore OpenTelemetry tracing for gRPC services
+- [ ] TODO: Archive old feature-flag definitions
+- [ ] Set up pre-commit hooks for the monorepo
+
+DONE THIS WEEK
+--------------
+- [x] Deploy hotfix for invoice PDF rendering
+- [x] Rotate API keys for third-party services
+- [x] Add rate limiting to public API endpoints
+- [x] Fix broken pagination on the admin dashboard
+
+Notes
+-----
+Standup at 10:00 IST daily. Blocker escalation → @alice on Slack.
+Sprint ends 2026-11-01. Please update estimates in Jira.

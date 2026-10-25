@@ -1,0 +1,6 @@
+streamlit>=1.35.0
+ollama>=0.2.1
+python-frontmatter>=1.1.0
+chardet>=5.2.0
+pytest>=8.2.0
+pytest-cov>=5.0.0

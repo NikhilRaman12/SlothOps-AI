@@ -1,0 +1,1 @@
+"""slothops/adapters package."""
