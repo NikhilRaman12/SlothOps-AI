@@ -111,7 +111,7 @@ Upload (.txt/.md)
 ### 1. Clone / Download
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/NikhilRaman12/SlothOps-AI.git
 cd slothops-ai
 ```
 

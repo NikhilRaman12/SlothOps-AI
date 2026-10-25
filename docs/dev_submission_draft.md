@@ -98,7 +98,7 @@ Test coverage spans:
 ## Getting Started
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/NikhilRaman12/SlothOps-AI.git
 cd slothops-ai
 pip install -r requirements.txt
 ollama pull gemma:2b
