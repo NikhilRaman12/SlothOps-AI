@@ -211,10 +211,12 @@ with st.sidebar:
     )
     st.divider()
 
-    # Privacy indicator
-    st.markdown(
-        "<div class='privacy-pill'>🔒 100% Local · No data leaves your machine</div>",
-        unsafe_allow_html=True,
+    # Privacy notice: uploads are processed by the server hosting this app.
+    st.warning(
+        "Privacy: uploaded files are processed by the server running this Streamlit app. "
+        "If you are using a hosted demo, files are sent to that host for processing. "
+        "Do not upload confidential documents. For sensitive files, run SlothOps AI "
+        "on a trusted local machine and review any external integrations."
     )
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -293,6 +295,14 @@ with tabs[0]:
 
     with col_upload:
         st.subheader("Upload Files")
+        st.info(
+            "**Where are my files processed?** Files selected here are uploaded to the "
+            "server hosting this Streamlit app. In the public hosted demo, that means "
+            "the demo server receives them. Use only non-sensitive sample files in the "
+            "hosted demo. For confidential documents, deploy SlothOps AI locally on a "
+            "machine you control. Local deployment keeps file handling on that machine "
+            "unless you configure an external service."
+        )
         uploaded = st.file_uploader(
             "Drop .txt or .md files here",
             type=["txt", "md", "markdown"],
@@ -689,11 +699,13 @@ with tabs[3]:
         st.markdown(
             """
             <div class='sloth-card'>
-            <h4 style='color:#00D4FF; margin-top:0;'>🔒 Privacy</h4>
+            <h4 style='color:#00D4FF; margin-top:0;'>🔒 Privacy &amp; Data Handling</h4>
             <ul>
-              <li>All AI inference runs <strong>locally</strong> via Ollama</li>
-              <li>SQLite history lives on your machine only</li>
-              <li>No telemetry, no cloud sync, no API keys required</li>
+              <li>Uploaded files are processed by the server hosting this Streamlit app</li>
+              <li>In the hosted demo, the demo server receives uploaded files; do not upload confidential documents</li>
+              <li>For sensitive documents, run SlothOps AI locally on a trusted machine</li>
+              <li>Local deployment keeps file handling on that machine unless external services are configured</li>
+              <li>Ollama inference runs wherever the configured Ollama service runs</li>
               <li>Files are never automatically deleted</li>
             </ul>
             </div>
