@@ -12,7 +12,7 @@
 
 ## What is SlothOps AI?
 
-SlothOps AI is a **privacy-first, fully local** file organisation assistant that intelligently analyses your `.txt` and `.md` files using open-weight AI models running on your machine via [Ollama](https://ollama.com). It never sends your data to the cloud.
+SlothOps AI is a **local-first** file organisation assistant that analyses `.txt` and `.md` files using open-weight AI models through [Ollama](https://ollama.com). The privacy properties depend on where you run it: when using a hosted Streamlit demo, uploaded files are sent to and processed by the demo server. For sensitive documents, deploy the app locally on a machine you control and review any external services you configure.
 
 ### Key Features
 
@@ -181,14 +181,26 @@ pytest tests/ -v --cov=slothops --cov-report=term-missing
 
 ---
 
-## Privacy
+## Privacy & Data Handling
 
-- ✅ All AI inference is **local** via Ollama
-- ✅ SQLite history is stored **only on your machine**
-- ✅ No API keys required
-- ✅ No telemetry or cloud sync
-- ✅ Files are **never automatically deleted**
-- ✅ Works fully offline (heuristic fallback mode)
+SlothOps AI is designed for local-first use, but **hosted and local deployments have different privacy properties**.
+
+### Hosted Streamlit demo
+
+- Files selected through the uploader are sent to the server hosting the Streamlit app.
+- The server receives the uploaded file content for ingestion and analysis; files may also be written to the configured output directory when the user applies organisation.
+- Do not upload confidential, personal, regulated, or otherwise sensitive documents to a public hosted demo.
+- Treat the hosted demo environment as a server you do not control.
+
+### Local deployment
+
+- When you run Streamlit and Ollama on a trusted local machine, file handling and model inference can remain on that machine.
+- Confirm that Ollama is running locally and that no remote model endpoint or external integration is configured.
+- If you configure external AI/API services, data sent to those services is subject to their own privacy and retention policies.
+- SQLite history and organised output are stored in the environment where the app is running.
+- Files are never automatically deleted by the organisation workflow.
+
+**Recommendation:** Use the hosted demo only with non-sensitive sample files. For sensitive documents, run SlothOps AI locally on a trusted machine and verify your model/API configuration before uploading.
 
 ---
 
